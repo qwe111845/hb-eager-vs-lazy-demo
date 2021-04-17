@@ -8,7 +8,7 @@ import com.lin.hibernate.demo.entity.Course;
 import com.lin.hibernate.demo.entity.Instructor;
 import com.lin.hibernate.demo.entity.InstructorDetail;
 
-public class EagerLazyDemo {
+public class FetchJoinDemo {
 
 	public static void main(String[] args) {
 
@@ -26,26 +26,18 @@ public class EagerLazyDemo {
 		try {
 
 			session.beginTransaction();
-			System.out.println("find Course object with eager loading...");
+			System.out.println("find Course object...");
 
 			int theId = 1;
 			Instructor tempInstructor = session.get(Instructor.class, theId);
 			System.out.println("Instructor: " + tempInstructor);
 
-			// option 1: call getter method while session is open
+			
 			System.out.println("Course: " + tempInstructor.getCourses());
+			
 						
 			session.getTransaction().commit();
 			System.out.println("Done!");
-			    
-			
-			session.close();
-			System.out.println("\nThe session is no colsed!\n");
-	
-			// resolve lazy loading issue
-
-			// option 1: call getter method while session is open
-			System.out.println("Course: " + tempInstructor.getCourses());
 
 			
 		} 
