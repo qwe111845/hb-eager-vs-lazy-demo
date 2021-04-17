@@ -40,7 +40,7 @@ public class EagerLazyDemo {
 			    
 			
 			session.close();
-			System.out.println("\nThe session is no colsed!\n");
+			System.out.println("\nThe session is now colsed!\n");
 	
 			// resolve lazy loading issue
 
